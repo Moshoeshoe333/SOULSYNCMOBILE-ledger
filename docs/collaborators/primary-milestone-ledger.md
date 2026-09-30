@@ -43,3 +43,23 @@ Then:
 `contract → diff audit → invariant audit → minimal implementation if required → failure-injection test → CI → preserve evidence`
 
 After that, return to the Android identity / EAS / APK / G-BOOT path.
+
+
+## MS-006 — Persistence contract implementation witness pending
+
+Target application SHA: `3eae8a53d5c41503201235022f05c21fa45dfdc3`
+
+Changes:
+- explicit `persistGuardianSnapshot()` boundary;
+- sequential failure propagation retained;
+- failure-injection test covers success, first-write failure, and second-write failure;
+- CI workflow now runs the persistence test;
+- forensic branch push events are now included so branch-head CI can be witnessed directly.
+
+Current evidence:
+- workflow Run #89 targets `63e79c3...` and is still `in_progress`;
+- workflow Run #90 targets `3eae8a5...` and is `queued`.
+
+Status: **PENDING CI**
+
+Important: this does not establish mobile-runtime persistence durability or G-BOOT. Those remain runtime-unwitnessed.
