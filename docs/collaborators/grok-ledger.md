@@ -92,3 +92,55 @@ Promotion status:
 ## Current status
 
 No architectural recommendation is implementation authority until a contract or evidenced gap justifies it.
+
+
+---
+
+# Governance refinement — HUMAN-01 / AG-PRI-01 / AG-MIS-02 / AG-GRK-03 / AG-CLD-04
+
+## Final role matrix
+
+| ID | Role | Non-overlapping responsibility | Primary deliverable |
+|---|---|---|---|
+| **HUMAN-01** | Point / Human Authority | Direction, acceptance, final truth | Accepted/rejected decisions |
+| **AG-PRI-01** | Primary Reasoning & Execution | Implementation, exact-state verification, CI, evidence execution | Verified changes, CI/runtime evidence, gate transitions |
+| **AG-MIS-02** | Forensic Falsifier | Attack a bounded claim | Falsification report |
+| **AG-GRK-03** | Systems Architect | Examine composition and boundaries | Architecture/contradiction report |
+| **AG-CLD-04** | Contract Auditor | Examine invariants and contract sufficiency | Contract/invariant report |
+
+## Isolation rule
+
+A collaborator may **identify** a problem inside another role's domain, but may not **own the resolution**.
+
+Examples:
+
+- Mistral may discover a persistence failure while falsifying a claim, but Claude owns the invariant analysis.
+- Grok may notice a persistence composition issue, but Claude determines whether a required invariant exists.
+- Claude may identify an architecture requirement implied by a contract, but AG-PRI-01 determines the minimal implementation.
+- AG-PRI-01 may discover an issue during execution, but does not automatically convert execution output into an accepted contract.
+- HUMAN-01 decides whether a proposed contract, implementation, or milestone is accepted.
+
+## Verification rule
+
+`agent report ≠ project evidence`
+
+Promotion requires:
+
+`candidate → exact-state reproduction → evidence classification → HUMAN-01 acceptance`
+
+Runtime claims additionally require direct runtime evidence.
+
+## Ledger separation
+
+Each collaborator maintains:
+- **finding ledger:** observations and candidate conclusions;
+- **milestone ledger:** completed role-specific milestones;
+- **promotion status:** whether the primary process has independently verified the entry.
+
+The primary milestone/gate ledger is the only place where project-level gate transitions are recorded.
+
+## Current decision
+
+The multi-agent structure is now considered **methodology infrastructure**, not application architecture.
+
+No collaborator is authorized to add itself, its framework, its model, or its workflow as a runtime dependency of SoulSyncMobile.
