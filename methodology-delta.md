@@ -353,3 +353,64 @@ It also reinforces:
 > **Use the smallest tool that closes the largest evidenced gap.**
 
 **Explicit non-adoption:** no Obsidian runtime, Claude Code dependency, vector database, semantic search service, autonomous knowledge graph, or cloud knowledge dependency is required for SoulSyncMobile by this delta. The current product execution chain remains unchanged.
+
+
+## MD-VISUAL-001 — Inspect the rendered product, not only the artifact
+
+**Status:** Adopted as methodology only; no visual-agent or visual-model dependency is introduced.
+
+External input: EinsiaAI's 29 Sep 2026 PPTBench report describes a distinction between syntactically valid artifacts and artifacts that preserve intended semantics and rendering. Its reported benchmark results and correlations are observations about that benchmark, not evidence about SoulSyncMobile. The transferable engineering pattern is the inspection loop:
+
+```
+LOOK → UNDERSTAND → EXECUTE → INSPECT → CORRECT → RE-EXECUTE
+```
+
+Applied to SoulSyncMobile, this sharpens the existing G-BOOT boundary:
+
+1. **Artifact validity is not product validity.** A successful TypeScript check, test suite, or build proves only the contract exercised by that check.
+2. **Semantic correctness is not visual correctness.** A threat engine can return the expected object while the mobile UI renders the wrong state, wording, or action.
+3. **Rendered inspection is evidence.** For G-BOOT's `visible-decision` stage, the witness should capture the actual displayed decision and its surrounding UI state, not infer it from the engine result.
+4. **Inspection precedes correction.** When a runtime witness fails, inspect the actual failure before changing code. Do not optimize the implementation against a proxy representation.
+5. **Re-execution closes the loop.** A correction is not accepted until the relevant boundary is executed again and the resulting evidence is preserved.
+6. **Structural and visual checks remain separate.** A future automated UI assertion may verify structure/text/state, while screenshots or direct observation verify rendered presentation. Neither should silently substitute for the other.
+
+### Product refinement
+
+The G-BOOT stages can therefore be treated as two coupled but distinct evidence layers:
+
+```
+ENGINE
+input → analyze → decision
+              ↓
+UI
+       render → visible-decision
+              ↓
+PERSISTENCE
+       local-record → restart
+```
+
+The important invariant is:
+
+```
+engine_decision observed ≠ visible_decision observed
+```
+
+The visible decision must be independently witnessed.
+
+### Bounded future witness
+
+For each known fixture, a future runtime record may bind:
+
+- repository SHA;
+- fixture identifier;
+- expected engine result;
+- observed engine result;
+- observed visible decision;
+- local-record result;
+- restart result;
+- offline result;
+- raw screenshot/device evidence where available.
+
+The expected result remains a contract/fixture input; the observed fields must come from actual execution.
+
+**Explicit non-adoption:** no PPTBench benchmark, computer-vision classifier, screenshot-based scoring system, visual LLM, autonomous UI fixer, or visual agent is being added to the product by this delta. The immediate G-BOOT objective remains the Android identity → authenticated EAS build → APK → physical runtime sequence.
