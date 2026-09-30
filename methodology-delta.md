@@ -113,6 +113,79 @@ raw input
 
 The immediate application is therefore **context-schema research only**, after the active E-008 and G-BOOT boundaries are resolved. This delta must not interrupt the active execution chain.
 
+
+## MD-TOOLCHAIN-001 — Evidence-first engineering loop
+
+**Status:** Adopted as methodology only; no external toolchain is being imported into the mobile runtime.
+
+The supplied engineering loop is useful as a refinement of the existing evidence discipline:
+
+```
+capture task
+→ map authoritative code/state
+→ select bounded tool
+→ test the actual interface
+→ scan the change
+→ run the pipeline
+→ inspect evidence/trace
+→ improve the next attempt
+```
+
+The transferable patterns are:
+
+1. **Map before modify.** Repository structure, exact refs, contracts, and current execution witnesses are established before proposing a change.
+2. **Structural inspection where it adds signal.** AST-aware search may be used for repository audits when text search is insufficient; it is an analysis aid, not a new threat classifier.
+3. **Interface testing over proxy testing.** Tests should exercise the actual boundary being claimed. A static/CI result must not be represented as mobile-runtime evidence.
+4. **Change scanning as a separate control.** Secret, dependency, configuration, and infrastructure scanning may be evaluated as independent verification layers. A scan result does not establish application correctness.
+5. **Reproducible pipeline execution.** Local/containerized pipeline tooling may be evaluated later to reduce environment drift, but only if its behavior can be reconciled with the authoritative CI pipeline.
+6. **Trace/evidence inspection.** Observability should preserve what actually happened without converting telemetry into authority.
+7. **Tool minimization.** A tool is adopted only when a demonstrated gap exists that it closes better than the existing deterministic mechanism.
+
+### Bounded candidate applications
+
+| Pattern | Candidate use | Current decision |
+|---|---|---|
+| Beads / Git Town / GitButler | task and branch-state management | methodology reference only |
+| Repomix | reproducible context snapshot before large audits | candidate offline aid |
+| Serena / ast-grep | semantic/structural code navigation | candidate audit aid |
+| ToolHive / MCP Inspector / Steel / Midscene | external-system/browser integration | defer; not required for current gate |
+| Bruno | explicit interface/request collections | defer unless an external interface is introduced |
+| Gitleaks | repository secret scanning | candidate independent CI hygiene control |
+| Trivy / Checkov / Scorecard | dependency/container/IaC/CI posture | candidate; scope only after a concrete need |
+| SWE-bench | repair-evaluation methodology | reference only; not a product test |
+| Dagger | reproducible pipeline execution | candidate; do not duplicate CI without evidence of benefit |
+| OpenLLMetry / LangWatch | LLM tracing | defer; no LLM runtime is authorized |
+
+### Non-adoption boundary
+
+These tools must not become hidden authority layers, cloud dependencies, autonomous production-code writers, or substitutes for G-BOOT. In particular:
+
+```
+tool output = observation
+tool output ≠ authority
+CI green ≠ mobile runtime proof
+external review ≠ repository truth
+```
+
+### Immediate consequence
+
+The active product chain remains unchanged:
+
+```
+typecheck
+→ Semantic 33
+→ threat fixtures
+→ storage validation
+→ G-BOOT
+```
+
+No toolchain expansion is justified solely because the tool exists. The next product boundary remains the Android application identity → authenticated EAS build → APK → physical/runtime evidence sequence.
+
+This delta also adopts the principle:
+
+> **Use the smallest tool that closes the largest evidenced gap.**
+
+
 ## OpenSRE-derived engineering patterns
 
 The useful extraction is limited to:
