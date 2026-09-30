@@ -82,7 +82,6 @@ but:
 “Which product claims have earned direct execution evidence?”
 ```
 
-
 ## MD-GENREC-001 — Context engineering without authority substitution
 
 **Status:** Adopted as methodology only; no LLM runtime or recommendation architecture is being added to SoulSyncMobile.
@@ -112,7 +111,6 @@ raw input
 **Explicit non-adoption:** no LLM classifier, prompt-driven ALLOW/WARN/DENY, catalog-style scoring head, cloud inference, autonomous production-code modification, or replacement of Semantic 33 with generative inference is authorized by this delta.
 
 The immediate application is therefore **context-schema research only**, after the active E-008 and G-BOOT boundaries are resolved. This delta must not interrupt the active execution chain.
-
 
 ## MD-TOOLCHAIN-001 — Evidence-first engineering loop
 
@@ -185,33 +183,6 @@ This delta also adopts the principle:
 
 > **Use the smallest tool that closes the largest evidenced gap.**
 
-
-## OpenSRE-derived engineering patterns
-
-The useful extraction is limited to:
-
-- deterministic execution boundaries,
-- explicit evidence/transcript handling,
-- reproducibility,
-- observable state transitions,
-- bounded automation,
-- separation of investigation from authority.
-
-OpenSRE architecture, cloud orchestration, agent swarms, or runtime dependencies are not being imported into SoulSyncMobile.
-
-## Current application boundary
-
-Application repository: `Moshoeshoe333/SOULSYNCMOBILE`
-
-Current forensic evaluation surface: PR #2 / `forensic/g-boot-witness-harness`, head `405fcfa07bb44715d21f196c4d782f8d48791b5d`.
-
-Run #73 (workflow `typecheck`, run ID `36712792873`) executed successfully against that exact head. Its steps include forensic workspace testimony, TypeScript isolation, G-BOOT tail-byte inspection, claim verification, typecheck, Semantic 33, and threat fixtures. It did **not** execute the mobile runtime or close G-BOOT.
-
-E-007 remains execution-witnessed at its exact pre-merge head by Run #72; the correction was then merged into the current PR #2 head.
-
-Runtime evidence remains separate from CI evidence.
-
-
 ## MD-ENTROPY-001 — Constraint-bounded repository order
 
 **Status:** Adopted as methodology only; conceptual transfer, not a physical/software equivalence claim.
@@ -238,3 +209,58 @@ This reinforces, but does not replace, the existing rule:
 > **Use the smallest tool that closes the largest evidenced gap.**
 
 **Explicit non-adoption:** no thermodynamic model, entropy score, complexity score, automated “order” optimizer, or AI-generated cleanup authority is introduced by this delta. The active product chain remains unchanged.
+
+## MD-GSTACK-001 — Role-separated engineering loop
+
+**Status:** Adopted as methodology only; no gstack agents or slash-command runtime is being imported into SoulSyncMobile.
+
+The useful pattern from Garry Tan's gstack is not the number of personas or commands. It is the separation of engineering work into bounded roles/stages with explicit intent. Applied to SoulSyncMobile, the existing forensic method can be made more explicit:
+
+```
+CONTEXT
+  ↓
+LOOP
+  ↓
+HARNESS
+  ↓
+EVAL
+  ↓
+RUNTIME
+```
+
+### Transferred controls
+
+1. **Context boundary.** Establish authoritative repository state, exact SHA, relevant contract, and current evidence before modification.
+2. **Loop boundary.** Every defect follows the existing sequence:
+   `FAILURE → MINIMAL FIX → DIFF AUDIT → INVARIANT AUDIT → EXECUTION`.
+3. **Role separation.** Planning, implementation, review, testing, and runtime witnessing are distinct responsibilities even when performed by the same contributor or agent. No single conversational instruction becomes authority merely because it spans multiple roles.
+4. **Harness boundary.** Harnesses test and bind evidence; they must not manufacture the observation they claim to witness.
+5. **Evaluation boundary.** Fixtures and deterministic checks evaluate behavior against explicit expectations; they do not establish mobile-runtime behavior.
+6. **Runtime boundary.** G-BOOT remains the direct evidence boundary for installation, boot, input, analysis, visible decision, local record, restart, and offline behavior.
+7. **Process over proliferation.** Additional agents, personas, slash commands, or automation are justified only when they close a demonstrated gap. Agent count is not an engineering metric.
+
+### Closed authority chain
+
+The methodology therefore retains:
+
+```
+context
+→ bounded work
+→ actual interface
+→ independent evaluation
+→ runtime witness
+→ accepted evidence
+```
+
+and explicitly rejects:
+
+```
+prompt/persona
+→ authority
+```
+
+**Explicit non-adoption:** no gstack persona catalog, prompt swarm, cloud agent dependency, autonomous production-code writer, or replacement of the deterministic threat/policy path is introduced by this delta.
+
+### Immediate consequence
+
+MD-GSTACK-001 does **not** interrupt the active execution chain. Its practical effect is organizational: future work should state its role, boundary, expected artifact, and witness before execution. The next product Point remains Android application identity → authenticated EAS build → APK → physical/runtime evidence.
