@@ -496,3 +496,53 @@ E-009 contract audit
 ```
 
 This delta does not interrupt that chain.
+
+
+## MD-ENVPROV-001 — External execution-environment provenance
+
+**Status:** Adopted as methodology only; no application/runtime change.
+
+The MISTRAL-E84 event on 30 Sep 2026 exposed a concrete provenance failure mode: an external agent generated a local repository state by cloning the application, running `expo prebuild`, modifying `app.json`, creating additional files, and committing the result as `e84a628`. That state was initially presented as repository state, but independent verification established that the commit did not exist in the authoritative application repository.
+
+The transferable control is:
+
+```
+external/generated repository state
+→ capture provenance
+→ verify remote object / exact SHA
+→ compare tree and diff
+→ inspect ancestry
+→ only then consider adoption
+```
+
+### Controls
+
+1. **Environment provenance is evidence metadata.** A repository state produced in a sandbox, clone, temporary workspace, or external agent environment is not authoritative merely because it is internally consistent.
+2. **Exact-object verification precedes adoption.** Claims about commits, files, application identity, generated native projects, or configuration must be independently verified against the authoritative repository.
+3. **Generated native state requires explicit review.** Commands such as `expo prebuild` can create substantial repository state; generated files must not silently become part of the audited application surface.
+4. **Sandbox commits are candidates, not witnesses.** A locally created commit has no authority over the remote repository until its exact object, ancestry, tree, and intended branch/ref are verified.
+5. **Environment provenance does not replace execution evidence.** Even a verified remote commit still does not establish mobile-runtime behavior without the corresponding runtime witness.
+6. **False-state discovery is retained.** A corrected external claim should remain recorded as a forensic observation when it exposes a repeatable control failure.
+
+### SoulSyncMobile application
+
+The event establishes the following anti-repeat rule:
+
+```
+external agent output
+≠ repository fact
+local generated commit
+≠ remote repository commit
+CI/static result
+≠ mobile runtime observation
+```
+
+The authoritative application state remains independently bound to exact repository refs. No Android application identity, generated `android/` tree, shell G-BOOT harness, or sandbox commit is admitted into the SoulSyncMobile evidence chain without remote verification.
+
+This delta also complements the G-BOOT harness integrity observation that a future witness should account for both committed ancestry and working-tree cleanliness before recording runtime evidence.
+
+**Explicit non-adoption:** no sandbox workspace, generated native project, external agent commit, automatic repository synchronization, or autonomous adoption mechanism is introduced into the product by this delta.
+
+The governing rule remains:
+
+> **Provenance must be established before repository state can become evidence.**
