@@ -414,3 +414,85 @@ For each known fixture, a future runtime record may bind:
 The expected result remains a contract/fixture input; the observed fields must come from actual execution.
 
 **Explicit non-adoption:** no PPTBench benchmark, computer-vision classifier, screenshot-based scoring system, visual LLM, autonomous UI fixer, or visual agent is being added to the product by this delta. The immediate G-BOOT objective remains the Android identity → authenticated EAS build → APK → physical runtime sequence.
+
+
+## MD-JEV-001 — Bounded decision pipelines with explicit abstention and receipts
+
+**Status:** Adopted as methodology only; no Jev/Kimi/agent runtime is introduced into SoulSyncMobile.
+
+External input: the user-supplied 30 Sep 2026 X post from **polydao** describing “Jev Engineering” and a reported cost-reduction pattern around bounded agent pipelines and Kimi K3. The external post is treated as an observation/input, not as independent evidence for SoulSyncMobile and not as proof of the reported cost figures or benchmark claims.
+
+The transferable engineering pattern is narrower than the product described externally:
+
+```
+PROPOSE
+  ↓
+FILTER
+  ↓
+BOUNDED ANSWER / ABSTAIN
+  ↓
+RE-CHECK AGAINST LIVE STATE
+  ↓
+RECEIPT
+```
+
+### Transferred controls
+
+1. **Proposal is not authority.** A heavy model, lightweight model, external review, heuristic, or future AI assistant may propose candidates; deterministic policy/contract boundaries retain decision authority.
+2. **Filter before expensive reasoning.** Invalid, impossible, or contract-incompatible candidates should be rejected before downstream processing when that can be done deterministically.
+3. **Abstention is a valid state.** When evidence is insufficient to support a decision, the system must be able to represent uncertainty rather than manufacture confidence.
+4. **Re-check against current state.** A decision derived from stale assumptions must not be silently accepted; a deterministic state check or explicit fallback should govern stale/invalid state.
+5. **Receipts are first-class evidence.** Each consequential transition should preserve enough immutable/reproducible context to reconstruct what was proposed, what was accepted or rejected, under which repository/state boundary, and what was actually observed.
+
+### Direct SoulSyncMobile mapping
+
+The current architecture already contains much of this pattern:
+
+```
+raw input
+→ Semantic 33 observations
+→ deterministic threat policy
+→ ThreatResult
+→ local incident record
+→ forensic/CI evidence
+→ G-BOOT runtime witness
+```
+
+The important boundary is:
+
+```
+observation ≠ authority
+confidence ≠ proof
+CI receipt ≠ runtime observation
+```
+
+The E-009 no-signal audit is therefore the immediate concrete application. At the current audited head, `analyzeThreat()` maps zero indicators to:
+
+```
+severityScore = 0
+riskLevel = safe
+confidenceScore = 70
+action = ALLOW
+```
+
+The existing type contract has no `UNKNOWN`/`unverified` risk level and no `NO_DECISION` action. This is **observed repository state**, not yet a classified defect. The next decision remains contract-first: establish whether `safe/ALLOW` means positive safety evidence or merely absence of a blocking signal before changing the vocabulary or policy.
+
+### Explicit non-adoption
+
+No Kimi/K3 dependency, Jev runtime, model-routing layer, model-confidence threshold, autonomous agent decision authority, cloud inference path, cost-optimization score, or 38%-style abstention threshold is introduced by this delta.
+
+The methodology rule is:
+
+> **When evidence cannot justify a decision, preserve the uncertainty instead of manufacturing certainty.**
+
+The active product chain remains:
+
+```
+E-009 contract audit
+→ Android application identity
+→ authenticated EAS build
+→ APK
+→ physical G-BOOT witness
+```
+
+This delta does not interrupt that chain.
