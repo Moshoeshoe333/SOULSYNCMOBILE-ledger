@@ -264,3 +264,92 @@ prompt/persona
 ### Immediate consequence
 
 MD-GSTACK-001 does **not** interrupt the active execution chain. Its practical effect is organizational: future work should state its role, boundary, expected artifact, and witness before execution. The next product Point remains Android application identity → authenticated EAS build → APK → physical/runtime evidence.
+
+
+## MD-SECOND-BRAIN-001 — Evidence-preserving knowledge compounding
+
+**Status:** Adopted as methodology only; no Obsidian/Claude Code dependency is introduced into SoulSyncMobile.
+
+External input: Bober_smart's 29 Sep 2026 post describing a personal knowledge system built around a raw intake area, organized wiki, and a coordinating instruction file, attributed in the post to an Andrey Karpathy “personal second brain” workflow.
+
+The transferable pattern is **not** “let an LLM become the source of truth.” It is to separate intake, organization, and coordination while preserving provenance.
+
+### Proposed second-brain structure
+
+```
+RAW
+  ↓
+NORMALIZE / INDEX
+  ↓
+WIKI / METHOD
+  ↓
+CROSS-REFERENCES
+  ↓
+ACTIVE LEDGER
+  ↓
+TASK / POINT
+```
+
+For SoulSync methodology work:
+
+- **RAW** preserves external articles, reviews, transcripts, screenshots, claims, and supplied observations without silently rewriting them.
+- **NORMALIZE / INDEX** extracts entities, claims, repository refs, dates, SHAs, concepts, and candidate relationships.
+- **WIKI / METHOD** stores durable engineering patterns such as MD-GSTACK, MD-ENTROPY, MD-TOOLCHAIN, MD-GENREC, and OpenSRE-derived controls.
+- **CROSS-REFERENCES** connect methodology entries to repository gates, errors, commits, fixtures, and runtime boundaries.
+- **ACTIVE LEDGER** records what is currently evidenced, open, corrected, or deferred.
+- **TASK / POINT** contains only the next bounded action justified by the evidence state.
+
+### Authority boundary
+
+A second brain is a **context system**, not an authority system.
+
+```
+external source → observation
+LLM synthesis   → interpretation/candidate relationship
+repository/CI   → engineering evidence
+runtime witness → runtime evidence
+contract/gate   → authority for its defined decision
+```
+
+Therefore:
+
+- accumulated context does not increase evidentiary authority;
+- repeated mention does not turn a claim into a fact;
+- backlinks do not prove causality;
+- generated summaries must remain traceable to source material;
+- stale knowledge must remain distinguishable from current repository state.
+
+### Anti-bloat controls
+
+The system must not become a second repository of duplicated product truth.
+
+1. Store methodology and evidence indexes, not copies of application source.
+2. Link exact repository SHAs instead of mirroring code.
+3. Preserve source dates and provenance.
+4. Separate historical from current state.
+5. Archive superseded interpretations rather than silently overwriting them.
+6. Promote a candidate pattern to adopted methodology only after explicit review.
+7. Do not allow the knowledge system to modify production code autonomously.
+
+### Operational loop
+
+```
+capture
+→ preserve raw source
+→ extract claims
+→ map relationships
+→ verify against authoritative state
+→ promote bounded methodology
+→ record provenance
+→ select next Point
+```
+
+This extends the governing rule:
+
+> **Discovery can be autonomous; authority cannot be autonomous.**
+
+It also reinforces:
+
+> **Use the smallest tool that closes the largest evidenced gap.**
+
+**Explicit non-adoption:** no Obsidian runtime, Claude Code dependency, vector database, semantic search service, autonomous knowledge graph, or cloud knowledge dependency is required for SoulSyncMobile by this delta. The current product execution chain remains unchanged.
