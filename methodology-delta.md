@@ -60,6 +60,28 @@ FAILURE
 
 No broad refactor is justified merely because a narrow boundary was found.
 
+## MD-002 — Engineering seriousness vs product maturity
+
+**Working thesis:** SoulSyncMobile is a serious, evidence-driven experimental engineering effort progressing toward product maturity, rather than a finished public product.
+
+This thesis deliberately separates:
+
+- **engineering seriousness** — supported by observed repository structure, typed contracts, CI witnesses, deterministic fixtures, forensic harnessing, explicit gates, and error tracking;
+- **experimental status** — supported by the evolving architecture/methodology and unresolved runtime boundary;
+- **product maturity** — not established merely by successful CI or static analysis.
+
+The repository currently supports claims of substantial engineering activity and witnessed CI/Semantic/fixture execution. It does **not** yet support a claim of production readiness because mobile runtime execution and G-BOOT evidence remain open.
+
+The term **solo** should remain qualified as “appears primarily developed by one contributor” unless contributor-history evidence is explicitly audited. Contribution concentration is descriptive; it is not itself a quality judgment.
+
+The appropriate maturity question is therefore:
+
+```
+not: “Does the repository look like a finished app?”
+but:
+“Which product claims have earned direct execution evidence?”
+```
+
 ## OpenSRE-derived engineering patterns
 
 The useful extraction is limited to:
@@ -77,4 +99,10 @@ OpenSRE architecture, cloud orchestration, agent swarms, or runtime dependencies
 
 Application repository: `Moshoeshoe333/SOULSYNCMOBILE`
 
-Evaluation surface remains the forensic G-BOOT witness lineage. Runtime evidence remains separate from CI evidence.
+Current forensic evaluation surface: PR #2 / `forensic/g-boot-witness-harness`, head `405fcfa07bb44715d21f196c4d782f8d48791b5d`.
+
+Run #73 (workflow `typecheck`, run ID `36712792873`) executed successfully against that exact head. Its steps include forensic workspace testimony, TypeScript isolation, G-BOOT tail-byte inspection, claim verification, typecheck, Semantic 33, and threat fixtures. It did **not** execute the mobile runtime or close G-BOOT.
+
+E-007 remains execution-witnessed at its exact pre-merge head by Run #72; the correction was then merged into the current PR #2 head.
+
+Runtime evidence remains separate from CI evidence.
