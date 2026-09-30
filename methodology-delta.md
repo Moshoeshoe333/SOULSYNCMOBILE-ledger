@@ -82,6 +82,37 @@ but:
 “Which product claims have earned direct execution evidence?”
 ```
 
+
+## MD-GENREC-001 — Context engineering without authority substitution
+
+**Status:** Adopted as methodology only; no LLM runtime or recommendation architecture is being added to SoulSyncMobile.
+
+External research source: Netflix, *GenRec: An LLM-Backed Recommendation Ranker at Netflix*, arXiv:2608.10257v2 (21 Aug 2026). The paper describes a shift from extensive hand-engineered recommendation features toward verbalized context, context engineering, catalog-aware scoring, reward-weighted post-training, and cost-constrained prefill-only serving. Its empirical claims are specific to Netflix recommendation ranking and are not evidence that the same architecture improves threat detection.
+
+The transferable engineering pattern for SoulSyncMobile is narrower:
+
+1. **Context before feature proliferation.** Before adding another brittle keyword/regex rule, ask whether the relevant evidence can be represented as a bounded, structured context object whose fields are explicitly defined and testable.
+2. **Closed-world outputs.** Threat decisions should remain constrained to an explicit decision vocabulary and policy contract. Open-ended generation must never become an authority path.
+3. **Signal budgeting.** Prefer high-signal, provenance-bearing observations over accumulating redundant or low-value context. Context reduction is a methodology question, not permission to discard evidence silently.
+4. **Separate understanding from authority.** Any future contextual/LLM-assisted analysis may propose observations or fixture candidates, but deterministic policy contracts and witnessed execution remain the authority boundary.
+5. **Measure before replacing.** GenRec's results come from controlled offline/online evaluation against a production baseline. SoulSyncMobile must not infer equivalent benefit without its own corpus, fixtures, deterministic comparisons, and runtime evidence.
+
+This yields a bounded design rule:
+
+```
+raw input
+→ normalized evidence
+→ bounded contextual representation
+→ Semantic 33 observation
+→ deterministic policy evaluation
+→ closed decision vocabulary
+→ witnessed runtime behavior
+```
+
+**Explicit non-adoption:** no LLM classifier, prompt-driven ALLOW/WARN/DENY, catalog-style scoring head, cloud inference, autonomous production-code modification, or replacement of Semantic 33 with generative inference is authorized by this delta.
+
+The immediate application is therefore **context-schema research only**, after the active E-008 and G-BOOT boundaries are resolved. This delta must not interrupt the active execution chain.
+
 ## OpenSRE-derived engineering patterns
 
 The useful extraction is limited to:
