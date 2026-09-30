@@ -210,3 +210,31 @@ Run #73 (workflow `typecheck`, run ID `36712792873`) executed successfully again
 E-007 remains execution-witnessed at its exact pre-merge head by Run #72; the correction was then merged into the current PR #2 head.
 
 Runtime evidence remains separate from CI evidence.
+
+
+## MD-ENTROPY-001 — Constraint-bounded repository order
+
+**Status:** Adopted as methodology only; conceptual transfer, not a physical/software equivalence claim.
+
+External conceptual input: Carlo Rovelli's discussion of entropy and coarse-graining. The useful engineering lesson is not that software obeys thermodynamic entropy, but that **the observed order of a system depends on its boundaries, constraints, and chosen level of description**.
+
+Applied carefully to SoulSyncMobile:
+
+1. **Boundaries before accumulation.** Architectural separation (UI → hooks → threat semantics → storage → runtime witness) reduces uncontrolled coupling better than adding tools or abstractions without a demonstrated need.
+2. **Coarse-graining must be explicit.** A repository summary, metric, score, or dashboard is a representation of underlying files, executions, and observations; it must never be mistaken for the underlying evidence.
+3. **Constraints create inspectable order.** Exact SHAs, allowlists, typed contracts, closed decision vocabularies, explicit gates, and append-only evidence records make state transitions observable and auditable.
+4. **Do not confuse more structure with more order.** Additional tools, dependencies, files, agents, or documentation increase system state unless they close a demonstrated gap.
+5. **Subtraction is a valid control.** Removing redundant paths, duplicated semantics, unnecessary dependencies, or unsupported claims can reduce structural complexity without adding functionality.
+6. **Entropy is not a defect label.** “Repo entropy” is an engineering metaphor, not a measured thermodynamic quantity. Any future metric must define its observable variables, scope, and reproducibility rather than borrowing physical terminology as proof.
+
+The resulting workflow principle is:
+
+```
+constraint → boundary → observable state → evidence → controlled transition
+```
+
+This reinforces, but does not replace, the existing rule:
+
+> **Use the smallest tool that closes the largest evidenced gap.**
+
+**Explicit non-adoption:** no thermodynamic model, entropy score, complexity score, automated “order” optimizer, or AI-generated cleanup authority is introduced by this delta. The active product chain remains unchanged.
