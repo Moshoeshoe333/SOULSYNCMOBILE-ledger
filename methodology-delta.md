@@ -546,3 +546,77 @@ This delta also complements the G-BOOT harness integrity observation that a futu
 The governing rule remains:
 
 > **Provenance must be established before repository state can become evidence.**
+
+## MD-EVAL-001 — Evaluator integrity and execution-anchored development
+
+**Status:** Adopted as methodology only; no CUDA Agent architecture, RL training, or GPU infrastructure is being imported into SoulSyncMobile.
+
+External research source: Dai et al., *CUDA Agent: Large-Scale Agentic RL for High-Performance CUDA Kernel Generation*, arXiv:2602.24286v1 (27 Feb 2026). The paper's performance results are specific to CUDA kernel generation and are not evidence about SoulSyncMobile. The transferable pattern is the deliberate coupling of agent work to protected, executable verification and explicit anti-reward-hacking controls.
+
+### Transferred controls
+
+1. **Execution feedback is part of the development boundary.** A proposed change is not evidence of correctness; the relevant interface must execute and produce an observable result.
+2. **Evaluator integrity is an epistemic control.** The evaluator, fixtures, harnesses, and measurement path must be sufficiently protected and separated from the change under test that an agent cannot silently redefine the criterion it is being judged against.
+3. **Correctness precedes optimization.** A performance, convenience, or workflow improvement must not compensate for failure of the underlying correctness contract.
+4. **Deterministic evaluation corpus.** Where practical, representative fixtures should be executable, bounded, reproducible, and filtered for ambiguity before being promoted into a gate.
+5. **Milestones over synthetic aggregate scores.** Independent evidence-bearing gates are preferable to a single composite quality score that can conceal which property failed.
+6. **Environment isolation matters.** Evaluation scripts, expected outputs, repository identity, and runtime boundaries should be distinct from agent-generated changes and independently attributable.
+7. **Anti-gaming applies to engineering evidence.** Wrong-target repositories, stale CI, modified evaluators, proxy tests, uncommitted state, fabricated runtime observations, and conflation of expected with observed output are evidence-integrity failures.
+
+### SoulSyncMobile mapping
+
+The pattern maps onto the existing chain:
+
+```
+proposal/change
+→ exact repository state
+→ bounded evaluator
+→ execution
+→ raw observation
+→ evidence classification
+→ gate transition
+```
+
+The G-BOOT harness therefore remains an **evidence instrument**, not an authority generator:
+
+```
+system under test ≠ evaluator ≠ agent making the change ≠ human accepting the evidence
+```
+
+For runtime witnessing, the expected fixture/result remains a contract input while the observed decision, persistence behavior, restart behavior, and offline behavior must come from actual execution.
+
+### Anti-evidence-gaming invariant
+
+```
+evaluator output = observation
+evaluator output ≠ authority by itself
+expected result ≠ observed result
+CI result ≠ mobile-runtime result
+agent claim ≠ repository fact
+```
+
+A verification mechanism that can be modified, bypassed, substituted, or confused with the system under test must be reclassified before its output is used as independent evidence.
+
+### Bounded evaluation corpus
+
+The current threat and G-BOOT fixture approach should evolve only where an evidenced gap exists. Candidate fixture metadata may include:
+
+- fixture identifier;
+- input;
+- expected semantic properties;
+- expected policy floor;
+- required runtime stage;
+- evidence class;
+- repository/configuration assumptions.
+
+Observed fields must remain execution-derived.
+
+### Explicit non-adoption
+
+No CUDA Agent RL loop, GPU pool, CUDA skill runtime, benchmark reward function, autonomous optimization system, or agent-training infrastructure is introduced into SoulSyncMobile.
+
+The immediate consequence is methodological:
+
+> **Agents may increase the search space; evaluators determine what was actually demonstrated.**
+
+This delta does not interrupt the active product chain.
