@@ -477,6 +477,33 @@ action = ALLOW
 
 The existing type contract has no `UNKNOWN`/`unverified` risk level and no `NO_DECISION` action. This is **observed repository state**, not yet a classified defect. The next decision remains contract-first: establish whether `safe/ALLOW` means positive safety evidence or merely absence of a blocking signal before changing the vocabulary or policy.
 
+### Refinement from the Carnegie Mellon JEV-as-a-Judge research
+
+A later Carnegie Mellon study, *JEV-as-a-Judge: Accept When Confident, Escalate When Unsure* (arXiv:2609.26550), provides a more precise version of the same boundary. The study evaluates a decision-only judge against stronger generative judges and reports that confidence-gated escalation can reduce expensive judge calls on bounded evaluation tasks, while performance degrades on tasks requiring derived reasoning such as math, code, and logic. These results remain external observations and do not establish SoulSyncMobile performance.
+
+The transferable controls are:
+
+1. **Type the decision space before choosing a decision mechanism.** If a decision can be represented as a closed Choice, ordered Score, or bounded yes/no-style proposition, its output should remain structurally constrained.
+2. **Separate decision from execution.** A typed recommendation may select, score, or flag; deterministic application code retains permission to execute consequential behavior.
+3. **Confidence is routing metadata, not authority.** A confidence value can determine whether to accept, re-check, abstain, or escalate only when its threshold has been locally evaluated for the actual task distribution. An externally reported threshold must not be imported as a SoulSync policy constant.
+4. **Evaluate the boundary where the decision is actually used.** A cheap decision mechanism may be suitable for bounded semantic judgments while remaining inappropriate for tasks requiring derivation or extended reasoning.
+5. **Receipts make decisions replayable.** Where a decision layer is ever introduced into engineering tooling, preserve the decision state/version, allowed outputs, returned distribution or score, selected route, evaluator version, and resulting action separately.
+6. **Held-out evaluation matters.** Thresholds and routing rules should be frozen before evaluation on a distinct corpus; tuning and evaluation must not silently share the same evidence.
+
+For SoulSyncMobile, this remains a **methodology control only**. The current deterministic threat path already owns ALLOW/WARN/DENY; no probabilistic model is required to make those decisions. The useful lesson is therefore the architectural boundary:
+
+    bounded proposal / classification
+    → typed result
+    → deterministic policy gate
+    → explicit action or abstention
+    → receipt / evidence
+
+and, critically:
+
+    typed result ≠ permission to act
+    confidence ≠ proof
+    external threshold ≠ local calibration
+
 ### Explicit non-adoption
 
 No Kimi/K3 dependency, Jev runtime, model-routing layer, model-confidence threshold, autonomous agent decision authority, cloud inference path, cost-optimization score, or 38%-style abstention threshold is introduced by this delta.
