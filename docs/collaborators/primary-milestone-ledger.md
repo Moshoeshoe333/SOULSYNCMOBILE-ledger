@@ -163,3 +163,109 @@ Identify the smallest invariant gap, if any.
 **No runtime claim without runtime evidence.**
 **No architecture expansion without an evidenced gap.**
 **No collaborator recommendation becomes project truth without HUMAN-01 acceptance.**
+# 2026-10-01 — CUDA Agent Research Intake / Methodology Delta
+
+## Research observation
+
+The supplied short link resolved to Dai et al., *CUDA Agent: Large-Scale Agentic RL for High-Performance CUDA Kernel Generation*, arXiv:2602.24286v1 (27 Feb 2026).
+
+The paper is treated as **external research input / AuthorityLevel.NONE** for SoulSyncMobile. Its CUDA benchmark results are not evidence about SoulSyncMobile.
+
+## Extracted transferable patterns
+
+- execution feedback belongs inside the development loop;
+- evaluator integrity is an epistemic control;
+- correctness must remain distinct from optimization/performance;
+- deterministic executable evaluation corpora reduce ambiguity;
+- independent milestones are preferable to synthetic aggregate quality scores;
+- evaluation environment and subject under test should remain attributable and separated;
+- anti-reward-hacking patterns generalize into anti-evidence-gaming controls.
+
+## Methodology action
+
+Added **MD-EVAL-001 — Evaluator integrity and execution-anchored development** to the methodology ledger.
+
+Added canonical methodology document:
+
+docs/SOULSYNC-ENGINEERING-SKILL.md
+
+The new skill consolidates the existing evidence protocol without changing application architecture:
+
+claim → authoritative state → bounded evaluator → execution → raw evidence → classification → accepted transition
+
+## Provenance
+
+- Previous methodology blob: aa4467e8797ada18e31ee845549fd7b28aa66997
+- Methodology update commit: 1b76062debd06886b09fed4e972ac17f09263a2f
+- New methodology blob: 1288a30a699a48bd22a26593493c4a4039e4c33d
+- Engineering skill commit: ba4bf9dc7dce7f91260bf81af4ec5bb68a768a51
+
+## Product impact
+
+**No SoulSyncMobile application code changed.**
+
+The active product chain remains:
+
+typecheck → Semantic 33 → threat fixtures → storage validation → persistence witness → Android identity/EAS/APK → G-BOOT
+
+No CUDA Agent architecture, RL system, GPU infrastructure, benchmark reward, autonomous optimizer, or cloud dependency was imported.
+
+## Evidence interpretation
+
+**Observed:** external research supports the usefulness of protected executable evaluators and anti-gaming controls in its own domain.
+
+**Transferred methodology:** evaluator integrity is worth making explicit in SoulSyncMobile.
+
+**Not established:** that CUDA Agent's architecture or results improve SoulSyncMobile.
+
+**Status:** MD-EVAL-001 adopted as methodology; application implementation unchanged.
+
+## Next Point — 2026-10-01 continuation
+
+### HUMAN-01 / Point
+- Review MD-EVAL-001 and the canonical engineering skill.
+- Review final application-head CI evidence.
+- Explicitly accept/reject persistence-completeness wording.
+- Accept/reject operational safe wording.
+- Confirm intended partial-persistence semantics before any further application mutation.
+
+### AG-PRI-01 / Primary
+1. Re-check collaborator ledgers.
+2. Verify exact application SHA.
+3. Retrieve final-head CI result; do not substitute intermediate Run #89 evidence.
+4. Perform persistence diff audit.
+5. Perform invariant audit.
+6. If clean and accepted, preserve evidence and update milestone status.
+7. Continue to Android application identity → authenticated EAS → APK → G-BOOT.
+8. Preserve raw build/runtime provenance.
+
+### AG-MIS-02 / Mistral
+Forensically attack evaluator integrity and persistence:
+- wrong-target/stale-result possibilities;
+- first-write and second-write failure paths;
+- evaluator/test drift;
+- expected-vs-observed confusion;
+- export vs durable-state divergence.
+Return exact observations only.
+
+### AG-GRK-03 / Grok
+Audit system composition:
+- whether the canonical skill duplicates existing contracts unnecessarily;
+- analysis/persistence/durable-state boundaries;
+- whether evaluator integrity introduces a genuine control gap;
+- whether any architecture expansion is actually justified.
+
+### AG-CLD-04 / Claude
+Audit contracts/invariants:
+- MD-EVAL-001 wording;
+- persistence completeness;
+- safe semantics;
+- expected-vs-observed separation;
+- evaluator independence;
+- smallest remaining normative ambiguity.
+
+## Governing sequence
+
+research observation → bounded methodology → exact application SHA → collaborator ledger check → CI witness → diff → invariant → HUMAN acceptance → minimal correction if required → CI → Android identity/EAS/APK → G-BOOT
+
+**No application mutation from this research unless a concrete project gap is independently evidenced.**
