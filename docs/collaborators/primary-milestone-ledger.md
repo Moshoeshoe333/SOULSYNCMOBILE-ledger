@@ -269,3 +269,83 @@ Audit contracts/invariants:
 research observation → bounded methodology → exact application SHA → collaborator ledger check → CI witness → diff → invariant → HUMAN acceptance → minimal correction if required → CI → Android identity/EAS/APK → G-BOOT
 
 **No application mutation from this research unless a concrete project gap is independently evidenced.**
+
+
+# 2026-10-01 — Final-head persistence CI witness / JEV methodology continuation
+
+## Final application-head evidence
+
+Target SHA: `3eae8a53d5c41503201235022f05c21fa45dfdc3`
+
+Direct push-triggered GitHub Actions Run #91: `36731365501`.
+
+Observed result: **SUCCESS**.
+
+The exact-head job completed all relevant stages:
+
+- forensic workspace testimony — PASS
+- forensic tsc isolation — PASS
+- forensic G-BOOT tail bytes — PASS
+- `verify:claims` — PASS
+- TypeScript typecheck — PASS
+- Semantic 33 tests — PASS
+- threat fixture tests — PASS
+- storage validation tests — PASS
+- persistence failure-injection tests — PASS
+
+This is a direct final-head CI witness. It supersedes the earlier pending status for Run #90; intermediate Run #89 is not used as final-head evidence.
+
+## Diff audit
+
+Comparison: `88ae95e09fa43082242186ea92c5b3c2ccbd5c60` → `3eae8a53d5c41503201235022f05c21fa45dfdc3`.
+
+Observed: 8 commits ahead, 0 behind, with changes limited to workflow triggering, persistence contract documentation, safe-policy wording, package test wiring, the persistence composition boundary/test, and its hook integration.
+
+No unrelated architecture expansion was observed in the compare surface.
+
+## Invariant audit
+
+Observed implementation invariants:
+
+1. Incident write is attempted before Harmony write.
+2. Incident-write failure prevents the Harmony write from being attempted.
+3. Harmony-write failure propagates rather than being swallowed.
+4. UI/snapshot mutation occurs only after both persistence operations resolve.
+5. The persistence helper does not manufacture a transaction or rollback guarantee.
+6. The application remains a two-key sequential persistence model; runtime durability is still unverified.
+
+## Policy wording observation
+
+At final SHA, P8 defines `safe` operationally as absence of known matched indicators under the current detection pattern set, explicitly not as proof of safety or legitimacy.
+
+This wording is **observed repository state**. HUMAN-01 acceptance remains the authority for normative promotion.
+
+## Android boundary
+
+At final SHA, `eas.json` defines the `gboot-preview` profile as internal distribution with Android APK output. `app.json` still contains no explicit Android application identifier/package and no authoritative EAS project identity is established in the repository.
+
+Therefore the next concrete product boundary remains:
+
+```
+Android application identity
+→ authenticated EAS project
+→ APK build
+→ install
+→ G-BOOT runtime witness
+```
+
+No runtime claim is promoted by the CI witness.
+
+## Current milestone interpretation
+
+**MS-006 — Persistence implementation witness:** CI **REPRODUCED / OBSERVED**, with final-head Run #91 evidence. Normative contract acceptance and runtime durability remain separate questions.
+
+**MS-004 — safe semantics:** wording present and executable policy remains unchanged; HUMAN-01 acceptance pending.
+
+**MS-003 — G-BOOT:** remains **RUNTIME UNWITNESSED**.
+
+## Next governing sequence
+
+`HUMAN acceptance → Android application identity → authenticated EAS → APK → physical/runtime G-BOOT → preserve raw runtime evidence`
+
+No application mutation is justified merely by the new JEV research. No architecture expansion is justified without an independently evidenced gap.
