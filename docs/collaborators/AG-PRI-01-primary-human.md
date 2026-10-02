@@ -63,3 +63,14 @@ No application change is authorized by this ledger entry.
 > **Strength of a claim must never exceed strength of evidence.**
 
 All collaborator observations remain subordinate to repository state, execution evidence, and HUMAN-01 reconciliation.
+
+
+## Addendum — 2026-10-02 current execution state
+
+WU-EAS-APK-002 remains OPEN. A dedicated status-inspection workflow was created on application branch forensic/wu-eas-remote-status-001 as PR #14, with no application runtime changes and no new EAS build submission. The available connector can create the workflow but cannot dispatch it or directly authenticate to EAS, so no terminal EAS result was observed.
+
+The correct state remains:
+
+**EAS build 126b7047... = UNKNOWN terminal result.**
+
+This access limitation must not be converted into a success, failure, cancellation, or artifact-absence claim. No replacement build is authorized by this state.
