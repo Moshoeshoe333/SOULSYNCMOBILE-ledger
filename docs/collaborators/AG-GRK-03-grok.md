@@ -36,3 +36,10 @@
 **Current gate remains OPEN.** The next Point is remote EAS build-result recovery, followed only if necessary by a minimal provenance correction.
 
 BUILD SUBMISSION ≠ BUILD COMPLETION ≠ APK ≠ INSTALLATION ≠ G-BOOT
+
+
+## Addendum — 2026-10-02 remote-build inspection attempt
+
+A bounded inspection workflow was created on forensic/wu-eas-remote-status-001 and PR #14, targeting existing EAS build 126b7047-16a5-43b0-ad42-452ef2e0f0b8. It pins checkout to the PR head for the inspection and would run eas build:view using EXPO_TOKEN. No new EAS build was submitted. No workflow execution was observed through the available GitHub execution interface, so the remote EAS terminal result remains UNKNOWN.
+
+**Instruction:** do not convert tool-access limitation into a build-state claim. The next valid evidence is an authenticated EAS build:view result for the exact build ID.
