@@ -38,3 +38,10 @@
 DISCOVERY ≠ AUTHORITY
 RESEARCH ≠ REPOSITORY STATE
 CI ≠ RUNTIME
+
+
+## Addendum — 2026-10-02 execution-boundary observation
+
+A bounded inspection workflow was authored to recover the existing EAS build record without creating another build. The available execution interface cannot dispatch that workflow or authenticate directly to EAS. Therefore the inspection attempt produced no new EAS evidence.
+
+**Instruction:** classify this as an evidence-access limitation, not as EAS failure. Preserve WU-EAS-APK-002 and do not let methodology work displace the remote-build evidence boundary.
