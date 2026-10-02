@@ -38,3 +38,10 @@
 **Do not advance G-BOOT. Do not declare APK success. Do not authorize persistence changes.** The next forensic Point is recovery of the remote EAS build result for build ID 126b7047-16a5-43b0-ad42-452ef2e0f0b8.
 
 OBSERVATION → EVIDENCE → VERIFICATION → INTERPRETATION → HUMAN-01 RECONCILIATION
+
+
+## Addendum — 2026-10-02 remote-build inspection attempt
+
+A bounded EAS-status inspection workflow was created in application branch forensic/wu-eas-remote-status-001, PR #14, specifically to query the existing EAS build ID without starting a new build. No application runtime code was changed. The connector cannot dispatch workflow runs or expose the EAS account directly, so no EAS terminal-state observation was produced by this attempt.
+
+**Instruction:** retain the remote EAS result as UNKNOWN. Do not infer failure, success, or artifact absence from the lack of an inspection run.
